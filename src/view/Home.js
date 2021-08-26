@@ -21,7 +21,7 @@ const Home = () => {
     <View style={styles.container}>
         <View style={styles.newPost}>
             <TextInput
-                placeholder="What's happening?"
+                placeholder="  What's happening?"
                 style={styles.input}
                 numberOfLines={5}
                 multiline={true}

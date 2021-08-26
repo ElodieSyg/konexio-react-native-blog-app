@@ -70,19 +70,20 @@ return (
             <Image 
                 source={require('../img/piment.png')} 
                 style={styles.image} />
-            <Text style={styles.title}>Welcome !</Text>
+            <Text style={styles.title}> Welcome on Bloc</Text>
+            <Text style={styles.italic}>Not Blog...</Text>
             <SafeAreaView style={styles.margin}>
             <Text style={styles.margin}>What's your name ?</Text>
                 <TextInput 
                     value={userInfo.nameValue.name}
                     onChangeText={userInfo.nameValue.setName}
-                    placeholder='type your name'
+                    placeholder='  type your name'
                     style={styles.input} />
             <Text style={styles.margin}>What's your username ?</Text>
                 <TextInput 
                     value={userInfo.idValue.id}
                     onChangeText={userInfo.idValue.setId}
-                    placeholder='type your username'
+                    placeholder='  type your username'
                     style={styles.input} />
                 <TextInput />
             </SafeAreaView>
@@ -132,6 +133,9 @@ const styles = StyleSheet.create ({
         backgroundColor: '#C0C0C0',
         height: 30,
         borderRadius: 5,
+    },
+    italic: {
+        fontSize: 12,
     }
 });
 
