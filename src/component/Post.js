@@ -7,7 +7,7 @@ import {
     Image,
     TouchableOpacity,
 } from 'react-native';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-native';
 // Context
 import { PostContext } from '../context/PostContext';
 
@@ -34,6 +34,7 @@ const Post = () => {
                 </TouchableOpacity>
             </View>
         );
+        console.log('item id l37', item.id)
     };
 
     return (

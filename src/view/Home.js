@@ -6,11 +6,14 @@ import {
     Button,
     Text,
 } from 'react-native';
+// Context
+import { UserContext } from '../context/UserContext'; 
 // Component
 import Navbar from '../component/Navbar';
 import Post from '../component/Post';
 
 const Home = () => {
+    const userInfo = useContext(UserContext);
     // Post onPress => add un nouveau post pour l'utilisateur
 
   return (
@@ -28,7 +31,9 @@ const Home = () => {
                 color='white'
                 />
         </View>
-
+        <View style={styles.usr}>
+            <Text style={styles.textUsr}>Hello {userInfo.idValue.id} !</Text>
+        </View>
         <Post />
         <Navbar />
     </View>
@@ -51,6 +56,13 @@ const styles = StyleSheet.create ({
     },
     titleMargin: {
         margin: 10,
+    },
+    usr: {
+        margin: 10,
+    },
+    textUsr: {
+        fontSize: 18,
+        fontWeight: 'bold',
     }
 });
 

@@ -1,6 +1,6 @@
-import React, { useState, CreateContext } from 'react';
+import React, { useState, createContext } from 'react';
 
-export const CommentContext = CreateContext();
+export const CommentContext = createContext();
 
 const CommentContextProvider = (props) => {
     const [comment, setComment ] = useState([]);
@@ -16,4 +16,4 @@ const CommentContextProvider = (props) => {
     );
 };
 
-export default CommentContextProvider;
+export default CommentContextProvider; 

@@ -6,12 +6,16 @@ import {
     SafeAreaView,
     TextInput,
     Image,
+    Alert,
+    Button,
 } from 'react-native';
+import { useHistory } from 'react-router';
 // Axios
 import Axios from 'axios';
 // Context
 import { UserContext } from '../context/UserContext';
 import { PostContext } from '../context/PostContext';
+import { CommentContext } from '../context/CommentContext';
 // Component
 import MyLink from '../component/MyLink';
 // import Navbar from '../component/Navbar';
@@ -19,7 +23,11 @@ import MyLink from '../component/MyLink';
 const Login = () => {
 const userInfo = useContext(UserContext);
 const allPost = useContext(PostContext);
+const comment = useContext(CommentContext);
 
+const history = useHistory();
+
+// Post request
 useEffect(() => {
     const postData = async () => {
         const res = await Axios.get('https://jsonplaceholder.typicode.com/posts');
@@ -28,14 +36,32 @@ useEffect(() => {
     postData()
 }, []);
 
+// Comments request
 useEffect(() => {
     const commentData = async () => {
-        const res = await Axios.get(`https://jsonplaceholder.typicode.com/posts/${allPost.numberValue.number}/comments`)
+        const res = await Axios.get(`https://jsonplaceholder.typicode.com/posts/2/comments
+        `)
         console.log(res)
-        
+        comment.setComment(res)
     }
     commentData();
 }, []);
+
+useEffect(() => {
+    console.log('id', userInfo.idValue.id)
+    console.log('name', userInfo.nameValue.name)
+    console.log('comment', comment.comment)
+}, [userInfo.idValue.id, userInfo.nameValue.name])
+
+const checkUsr = () => {
+    let patt = new RegExp (/^.{1,10}$/);
+
+    if (!patt.test(userInfo.idValue.id)) {
+        Alert.alert('Your username must have between 1 and 10 characters.')
+    } else {
+        history.push('/home')
+    };
+};
 
 return (
     <View style={styles.container}>
@@ -57,7 +83,10 @@ return (
                     placeholder='type your username' />
                 <TextInput />
             </SafeAreaView>
-            <MyLink to='/home'>Login</MyLink>
+            <Button 
+                title='Login' 
+                onPress={checkUsr}
+                color='purple' />
         </View>
     </View>
 );

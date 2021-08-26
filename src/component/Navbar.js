@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
 const Navbar = () => {
+
   return (
     <View style={styles.container}>
         <TouchableOpacity>

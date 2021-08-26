@@ -13,7 +13,7 @@ const PostContextProvider = (props) => {
     const userPostValue = {
         userPost,
         setUserPost,
-    }
+    };
 
     const [number, setNumber] = useState(0);
     const numberValue = {
