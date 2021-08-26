@@ -27,13 +27,13 @@ const Comment = () => {
     return (
         <View style={styles.container}>
             <Text>Comment</Text>
-            <FlatList
+{/*             <FlatList
                 data={comment.comment}
                 renderItem={renderComment}
                 keyExtractor={(item) => item.id}
                 styles={styles.comment}
                 />
-        </View>
+ */}        </View>
     );
 };
 
@@ -48,6 +48,7 @@ const styles = StyleSheet.create ({
         margin: 10,
         borderColor: 'grey',
         borderWidth: 1,
+        backgroundColor: 'black',
     },
     name: {
         fontSize: 18,

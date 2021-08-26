@@ -26,7 +26,7 @@ const Post = () => {
             <View style={styles.postContainer}>
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.body}>{item.body}</Text>
-                <TouchableOpacity onPress={handleClickComment}>
+                <TouchableOpacity onPress={handleClickComment} >
                     <Image 
                         source={require('../img/postcomment.png')}
                         style={styles.image} 
@@ -34,7 +34,6 @@ const Post = () => {
                 </TouchableOpacity>
             </View>
         );
-        console.log('item id l37', item.id)
     };
 
     return (

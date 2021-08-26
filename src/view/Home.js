@@ -5,6 +5,7 @@ import {
     TextInput,
     Button,
     Text,
+    TouchableOpacity
 } from 'react-native';
 // Context
 import { UserContext } from '../context/UserContext'; 
@@ -25,11 +26,13 @@ const Home = () => {
                 numberOfLines={5}
                 multiline={true}
                 />
+            <TouchableOpacity style={styles.button}>
             <Button 
                 title='post'
-                style={styles.button}
                 color='white'
+                style={styles.margin}
                 />
+            </TouchableOpacity>
         </View>
         <View style={styles.usr}>
             <Text style={styles.textUsr}>Hello {userInfo.idValue.id} !</Text>
@@ -49,6 +52,9 @@ const styles = StyleSheet.create ({
     newPost: {
         width: '100%',
         backgroundColor: '#C0C0C0',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 120,
     },
     input: {
         width: '100%',
@@ -63,7 +69,13 @@ const styles = StyleSheet.create ({
     textUsr: {
         fontSize: 18,
         fontWeight: 'bold',
-    }
+    },
+    button: {
+        backgroundColor: 'purple',
+        borderRadius: 5,
+        width: 70,
+        height: 40,
+    },
 });
 
 export default Home;
