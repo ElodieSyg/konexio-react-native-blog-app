@@ -42,17 +42,11 @@ useEffect(() => {
     const commentData = async () => {
         const res = await Axios.get(`https://jsonplaceholder.typicode.com/posts/2/comments
         `)
-        console.log(res)
-        comment.setComment(res)
+        console.log('res comment request', res.data)
+        comment.setComment(res.data)
     }
     commentData();
 }, []);
-
-useEffect(() => {
-    console.log('id', userInfo.idValue.id)
-    console.log('name', userInfo.nameValue.name)
-    console.log('comment', comment.comment)
-}, [userInfo.idValue.id, userInfo.nameValue.name])
 
 const checkUsr = () => {
     let patt = new RegExp (/^.{1,10}$/);

@@ -5,19 +5,23 @@ import {
     Text,
     FlatList,
 } from 'react-native';
+import Navbar from '../component/Navbar';
 // Context
 import { CommentContext } from '../context/CommentContext';
 
 const Comment = () => {
     const comment = useContext(CommentContext);
 
-    useEffect(() => {
-        console.log(comment)
+/*     useEffect(() => {
+        console.log('comment body', comment.body)
     }, [comment])
 
-    const renderComment = (item) => {
+ */
+    // Item entre accolades car on reçoit un objet 
+    const renderComment = ({item}) => {
         return (
             <View style={styles.commentContainer}>
+                <Text style={styles.body}>{item.postId}</Text>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.body}>{item.body}</Text>
             </View>
@@ -26,14 +30,15 @@ const Comment = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Comment</Text>
-{/*             <FlatList
+            <Text style={styles.title}>Comment</Text>
+            <FlatList
                 data={comment.comment}
                 renderItem={renderComment}
                 keyExtractor={(item) => item.id}
-                styles={styles.comment}
+                styles={styles.commentContainer}
                 />
- */}        </View>
+            <Navbar />
+         </View>
     );
 };
 
@@ -43,12 +48,12 @@ const styles = StyleSheet.create ({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 50,
     },
-    postContainer: {
+    commentContainer: {
         margin: 10,
         borderColor: 'grey',
         borderWidth: 1,
-        backgroundColor: 'black',
     },
     name: {
         fontSize: 18,
@@ -59,8 +64,10 @@ const styles = StyleSheet.create ({
         fontSize: 14,
         margin: 10,
     },
-    comment: {
-        height: '80%'
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        margin: 10,
     },
 });
 

@@ -9,6 +9,8 @@ const CommentContextProvider = (props) => {
         setComment,
     };
 
+    console.log('comment', comment)
+
     return (
         <CommentContext.Provider value={commentValue}>
             {props.children}

@@ -24,6 +24,7 @@ const Post = () => {
 
         return (
             <View style={styles.postContainer}>
+                <Text style={styles.body}>{item.id}</Text>
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.body}>{item.body}</Text>
                 <TouchableOpacity onPress={handleClickComment} >
@@ -54,6 +55,7 @@ const styles = StyleSheet.create ({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        height: '80%',
     },
     postContainer: {
         margin: 10,
@@ -74,9 +76,6 @@ const styles = StyleSheet.create ({
         height: 25,
         margin: 10,
     },
-    post: {
-        height: '80%'
-    }
 });
 
 export default Post;

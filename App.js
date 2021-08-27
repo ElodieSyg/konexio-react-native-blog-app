@@ -4,6 +4,8 @@ import { NativeRouter as Router, Route } from 'react-router-native';
 import Home from './src/view/Home';
 import Login from './src/view/Login';
 import Comment from './src/view/Comment';
+import MyComments from './src/view/MyComments';
+import Profil from './src/view/Profil';
 // Context
 import UserContext from './src/context/UserContext';
 import PostContext from './src/context/PostContext';
@@ -18,6 +20,8 @@ export default function App() {
               <Route path='/' exact component={Login} />
               <Route path='/home' exact component={Home} />
               <Route path='/comment' exact component={Comment} />
+              <Route path='/my-comments' exact component={MyComments} />
+              <Route path='/profil' exact component={Profil} />
           </Router>
         </UserContext>
       </PostContext>
