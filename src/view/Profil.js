@@ -31,6 +31,7 @@ const styles = StyleSheet.create ({
         marginTop: 50,
         flex: 1,
         alignItems: 'center',
+        height: '80%',
     },
     profilContainer: {
         margin: 10,
@@ -46,6 +47,13 @@ const styles = StyleSheet.create ({
     profiltitle: {
         margin: 10,
         fontSize: 14,
-    }
-})
+    },
+    button: {
+        backgroundColor: 'purple',
+        borderRadius: 5,
+        width: 70,
+        height: 40,
+    },
+});
+
 export default MyComments;

@@ -4,19 +4,23 @@ import {
     StyleSheet,
     Text,
     FlatList,
+    Button,
+    TouchableOpacity,
 } from 'react-native';
 import Navbar from '../component/Navbar';
+import { useHistory } from 'react-router-native';
 // Context
 import { CommentContext } from '../context/CommentContext';
 
 const Comment = () => {
     const comment = useContext(CommentContext);
+    const history = useHistory();
 
 /*     useEffect(() => {
         console.log('comment body', comment.body)
     }, [comment])
-
  */
+
     // Item entre accolades car on reçoit un objet 
     const renderComment = ({item}) => {
         return (
@@ -28,9 +32,21 @@ const Comment = () => {
         );
     };
 
+    const handleBack = () => {
+        history.push('/home');
+    };
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Comment</Text>
+            <View>
+                <TouchableOpacity onPress={handleBack}>
+                    <Button
+                        title='Back'
+                        style={styles.button}
+                        />
+                    <Text style={styles.title}>Comment</Text>
+                </TouchableOpacity>               
+            </View>
             <FlatList
                 data={comment.comment}
                 renderItem={renderComment}
@@ -69,6 +85,9 @@ const styles = StyleSheet.create ({
         fontWeight: 'bold',
         margin: 10,
     },
+    button: {
+        
+    }
 });
 
 export default Comment;

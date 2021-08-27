@@ -17,7 +17,7 @@ const Post = () => {
 
     const handleClickComment = () => {
         history.push('/comment')
-    }
+    };
 
     const renderPost = ({item}) => {
         allPost.numberValue.setNumber(item.id);
